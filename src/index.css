@@ -1,0 +1,474 @@
+:root {
+  --bg: #0b0b12;
+  --card: #16161f;
+  --card2: #1e1e2a;
+  --text: #f0f0f5;
+  --muted: #9a9aae;
+  --border: #2a2a38;
+  --accent: #7c5cff;
+  --accent2: #22d3ee;
+  --up: #4ade80;
+  --gold: #fbbf24;
+}
+:root.light {
+  --bg: #f6f6fb;
+  --card: #ffffff;
+  --card2: #f0f0f7;
+  --text: #16161f;
+  --muted: #6a6a7e;
+  --border: #e2e2ee;
+  --accent2: #0891b2;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Pretendard', 'Malgun Gothic', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 20px 16px 60px;
+}
+
+/* 히어로 */
+.hero { text-align: center; padding: 28px 0 20px; position: relative; }
+.theme-toggle {
+  position: absolute;
+  top: 8px;
+  right: 0;
+  background: var(--card2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+  cursor: pointer;
+  line-height: 1;
+}
+.badge-top {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent2);
+  background: rgba(34, 211, 238, 0.1);
+  border: 1px solid rgba(34, 211, 238, 0.3);
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+.hero h1 {
+  font-size: 30px;
+  font-weight: 800;
+  margin: 0 0 10px;
+  letter-spacing: -0.02em;
+}
+.hero .sub { color: var(--muted); font-size: 15px; line-height: 1.5; margin: 0; }
+.hero .sub b { color: var(--text); }
+
+/* 카드 */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+.input-card { padding: 22px 20px; }
+
+.fld-label { display: block; font-size: 14px; color: var(--muted); margin-bottom: 10px; font-weight: 600; }
+
+.salary-input {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 6px;
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 8px;
+}
+.big-input {
+  background: transparent;
+  border: none;
+  color: var(--text);
+  font-size: 40px;
+  font-weight: 800;
+  outline: none;
+  text-align: right;
+  width: auto;
+  letter-spacing: -0.02em;
+}
+.salary-input .unit { font-size: 18px; color: var(--muted); font-weight: 700; white-space: nowrap; }
+.korean-hint { color: var(--accent2); font-size: 14px; margin-top: 8px; min-height: 20px; font-weight: 600; text-align: center; }
+
+.presets { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 16px; }
+.preset {
+  padding: 10px 4px;
+  background: var(--card2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.preset.on { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+.adv-toggle {
+  width: 100%;
+  margin-top: 16px;
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 13px;
+  cursor: pointer;
+  padding: 6px;
+}
+.adv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
+.fld label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 5px; }
+.fld input {
+  width: 100%;
+  padding: 10px;
+  background: var(--card2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text);
+  font-size: 15px;
+  outline: none;
+}
+
+.calc-btn {
+  width: 100%;
+  margin-top: 20px;
+  padding: 16px;
+  background: linear-gradient(135deg, var(--accent), #a855f7);
+  border: none;
+  border-radius: 14px;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.2s;
+  box-shadow: 0 6px 20px rgba(124, 92, 255, 0.35);
+}
+.calc-btn:active { transform: scale(0.98); }
+
+/* 전투력 등급 카드 (스카우터) */
+.power-card {
+  text-align: center;
+  background: radial-gradient(circle at 50% 0%, rgba(124,92,255,0.25), var(--card));
+  border: 1px solid var(--accent);
+  border-radius: 18px;
+  padding: 24px 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 0 30px rgba(124, 92, 255, 0.2);
+}
+.power-scan { font-size: 12px; color: var(--accent2); letter-spacing: 0.05em; margin-bottom: 10px; }
+.power-value {
+  font-size: 46px;
+  font-weight: 900;
+  color: var(--accent2);
+  letter-spacing: -0.02em;
+  text-shadow: 0 0 20px rgba(34, 211, 238, 0.5);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+.power-grade {
+  font-size: 30px;
+  font-weight: 900;
+  margin: 6px 0 8px;
+  text-shadow: 0 0 20px rgba(124, 92, 255, 0.4);
+}
+.pg-emoji { margin-right: 6px; }
+.power-rank-line { font-size: 14px; color: var(--muted); }
+.power-rank-line b { color: var(--gold); font-size: 16px; }
+.power-comment { font-size: 14px; color: var(--text); margin-top: 12px; font-style: italic; opacity: 0.9; }
+
+/* 상위 % 뱃지 */
+.rank-badge {
+  text-align: center;
+  background: linear-gradient(135deg, rgba(251,191,36,0.15), rgba(124,92,255,0.15));
+  border: 1px solid rgba(251,191,36,0.35);
+  border-radius: 14px;
+  padding: 14px;
+  font-size: 15px;
+  margin-bottom: 14px;
+}
+.rank-badge b { color: var(--gold); font-size: 17px; }
+.rank-fire { margin-right: 4px; }
+
+/* 실시간 카운터 */
+.live-card {
+  text-align: center;
+  background: linear-gradient(135deg, #1a1440, #0f2540);
+  border: 1px solid var(--accent);
+  border-radius: 18px;
+  padding: 22px;
+  margin-bottom: 16px;
+}
+.live-label { font-size: 13px; color: var(--muted); margin-bottom: 8px; }
+.live-money {
+  font-size: 34px;
+  font-weight: 800;
+  color: var(--up);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+.live-sub { font-size: 13px; color: var(--accent2); margin-top: 8px; }
+
+/* 실수령 헤드라인 */
+.net-headline {
+  display: flex;
+  align-items: center;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+.net-col { flex: 1; text-align: center; }
+.net-label { font-size: 13px; color: var(--muted); margin-bottom: 6px; }
+.net-val { font-size: 22px; font-weight: 800; letter-spacing: -0.02em; }
+.net-val.accent { color: var(--accent); }
+.net-divider { width: 1px; align-self: stretch; background: var(--border); }
+
+.block-title { font-size: 15px; margin: 0 0 14px; font-weight: 700; }
+
+/* 시간 단위 그리드 */
+.metric-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.metric { background: var(--card2); border-radius: 12px; padding: 14px; text-align: center; }
+.m-label { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+.m-value { font-size: 17px; font-weight: 700; }
+
+/* 공제 내역 */
+.deduction-list { list-style: none; margin: 0; padding: 0; }
+.deduction-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+}
+.deduction-list li span:first-child { color: var(--muted); }
+.ded-total {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 0 4px;
+  font-size: 15px;
+}
+.ded-total b { color: #f87171; font-size: 17px; }
+.eff-rate { text-align: right; font-size: 12px; color: var(--muted); }
+
+/* SEO 콘텐츠 */
+.seo-content { padding: 8px 4px; color: var(--muted); font-size: 14px; line-height: 1.7; }
+.seo-content h2 { color: var(--text); font-size: 18px; margin: 18px 0 10px; }
+.seo-content h3 { color: var(--text); font-size: 15px; margin: 16px 0 8px; }
+.seo-content ul { padding-left: 18px; }
+.seo-content li { margin: 4px 0; }
+.seo-content .note { font-size: 12px; margin-top: 14px; opacity: 0.8; }
+
+footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+  padding: 30px 0 10px;
+}
+
+/* 공유 버튼 */
+.share-btn {
+  width: 100%;
+  margin: 4px 0 16px;
+  padding: 15px;
+  background: var(--card2);
+  border: 1px solid var(--accent);
+  border-radius: 14px;
+  color: var(--text);
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.share-btn:active { transform: scale(0.98); }
+.share-btn:disabled { opacity: 0.6; }
+
+/* 공유 캡처 카드 (화면 밖에 렌더) */
+.share-capture-wrap {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+}
+.share-capture {
+  width: 400px;
+  padding: 40px 32px;
+  background: linear-gradient(160deg, #1a1440, #0b0b12 70%);
+  color: #f0f0f5;
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', sans-serif;
+}
+.sc-brand { font-size: 18px; font-weight: 700; color: #22d3ee; margin-bottom: 24px; }
+.sc-emoji { font-size: 56px; }
+.sc-grade {
+  font-size: 34px;
+  font-weight: 900;
+  margin: 8px 0 6px;
+  color: #fff;
+  text-shadow: 0 0 20px rgba(124, 92, 255, 0.6);
+}
+.sc-rank { font-size: 15px; color: #fbbf24; font-weight: 700; }
+.sc-divider { height: 1px; background: rgba(255,255,255,0.15); margin: 24px 0; }
+.sc-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  padding: 7px 0;
+}
+.sc-row span { color: #9a9aae; }
+.sc-row b { color: #fff; font-weight: 700; }
+.sc-comment { font-size: 14px; font-style: italic; color: #cfcfe0; margin-top: 20px; }
+.sc-url { font-size: 13px; color: #7c5cff; margin-top: 20px; font-weight: 700; }
+
+/* 라이트 모드 보정 (어두운 그라데이션 카드들) */
+:root.light .badge-top {
+  background: rgba(8, 145, 178, 0.1);
+  border-color: rgba(8, 145, 178, 0.35);
+}
+:root.light .live-card {
+  background: linear-gradient(135deg, #ede9ff, #e0f2fe);
+  border-color: #0891b2;
+}
+:root.light .live-money { color: #16a34a; }
+:root.light .live-label { color: #6a6a7e; }
+:root.light .power-card {
+  background: radial-gradient(circle at 50% 0%, rgba(124,92,255,0.12), var(--card));
+}
+
+/* 목표 실수령 역산 */
+.goal-card { border-color: var(--accent); }
+.goal-input-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+.goal-pre, .goal-post { font-size: 15px; color: var(--muted); white-space: nowrap; }
+.goal-input {
+  width: 90px;
+  padding: 8px 10px;
+  background: var(--card2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text);
+  font-size: 20px;
+  font-weight: 700;
+  text-align: right;
+  outline: none;
+}
+.goal-btn {
+  width: 100%;
+  padding: 12px;
+  background: var(--card2);
+  border: 1px solid var(--accent);
+  border-radius: 12px;
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.goal-result {
+  margin-top: 16px;
+  text-align: center;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+.goal-main { font-size: 17px; margin-bottom: 10px; }
+.goal-main b { color: var(--accent); font-size: 20px; }
+.goal-gap { font-size: 16px; }
+.goal-gap.up b { color: var(--gold); }
+.goal-gap.down { color: var(--up); }
+.goal-pct { display: block; font-size: 14px; color: var(--muted); margin-top: 4px; }
+
+/* 실수령표 페이지 */
+.table-toggle {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.table-toggle button {
+  flex: 1;
+  padding: 12px;
+  background: var(--card2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--muted);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.table-toggle button.on {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+.grade-group {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 14px;
+}
+.grade-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 0 0 10px;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  background: none;
+  color: var(--text);
+  cursor: pointer;
+  text-align: left;
+}
+.gg-arrow { font-size: 12px; color: var(--muted); margin-left: 6px; }
+.gg-emoji { font-size: 22px; }
+.gg-name { font-size: 18px; font-weight: 800; }
+.gg-top { margin-left: auto; font-size: 12px; color: var(--gold); font-weight: 700; }
+.salary-tbl {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.salary-tbl th {
+  text-align: left;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 8px;
+}
+.salary-tbl td {
+  padding: 9px 8px;
+  border-top: 1px solid var(--border);
+  font-weight: 600;
+}
+.salary-tbl td:first-child { color: var(--accent2); }
+.salary-tbl .muted-cell { color: var(--muted); font-weight: 500; }
+.salary-tbl.full { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 8px 12px; }
+.salary-tbl.full th { padding: 10px 8px; }
+.to-calc-btn {
+  display: block;
+  text-align: center;
+  margin: 20px 0;
+  padding: 15px;
+  background: linear-gradient(135deg, var(--accent), #a855f7);
+  border-radius: 14px;
+  color: #fff;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(124, 92, 255, 0.35);
+}
