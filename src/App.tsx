@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Head } from 'vite-react-ssg';
 import { calculateSalary, reverseSalary, type SalaryResult } from './salaryCalc';
 import { won, toKorean } from './utils';
 
@@ -50,6 +51,11 @@ export default function App() {
 
   return (
     <div className="wrap">
+      <Head>
+        <title>월급력 측정기 - 내 연봉 전투력은? | 실수령액 계산기</title>
+        <meta name="description" content="연봉을 입력하면 월급 전투력을 측정합니다! 2026년 기준 실수령액, 1초에 버는 돈, 대한민국 상위 몇 %인지 전투력 등급으로 확인하세요." />
+        <link rel="canonical" href="https://salary-calc-web.vercel.app/" />
+      </Head>
       <header className="hero">
         <button className="theme-toggle" onClick={toggleTheme} aria-label="테마 전환">
           {isLight ? '🌙' : '☀️'}
