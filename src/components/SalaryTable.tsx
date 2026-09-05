@@ -82,7 +82,7 @@ export function SalaryTable() {
       <Head>
         <title>2026 연봉별 실수령액 표 - 월급 전투력 등급별 정리 | 월급력 측정기</title>
         <meta name="description" content="2026년 기준 연봉별 실수령액을 한눈에! 연봉 2000만원부터 1억5000만원까지 월/연 실수령액과 4대보험·세금 공제 반영. 전투력 등급별로 정리." />
-        <link rel="canonical" href="https://pay-scouter.com/salary-table" />
+        <link rel="canonical" href="https://salary-calc-web.vercel.app/salary-table" />
       </Head>
 
       <header className="hero">
