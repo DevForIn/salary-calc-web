@@ -140,7 +140,11 @@ export default function App() {
         </p>
       </section>
 
-      <footer>© 2026 월급력 측정기 (pay-scouter) · 연봉 실수령액 계산기 · by DevForIn</footer>
+      <footer>
+        © 2026 월급력 측정기 (pay-scouter) · 연봉 실수령액 계산기 · by DevForIn
+        <br />
+        <Link to="/privacy" style={{ color: 'inherit' }}>개인정보처리방침</Link>
+      </footer>
     </div>
   );
 }
